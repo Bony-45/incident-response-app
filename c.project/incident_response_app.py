@@ -52,7 +52,7 @@ def generate_pdf_report():
 
 # Main app configuration
 st.set_page_config(page_title="Incident Response App", layout="wide")
-st.title("🚨 Incident Response Simulation System")
+st.title(" Incident Response Simulation System")
 
 # Sidebar navigation
 with st.sidebar:
@@ -70,11 +70,11 @@ with st.sidebar:
     
     st.divider()
     if 'start_time' in st.session_state:
-        st.write(f"⏱️ Elapsed time: {datetime.datetime.now() - st.session_state['start_time']}")
+        st.write(f" Elapsed time: {datetime.datetime.now() - st.session_state['start_time']}")
 
 # Incident Reporting Page
 if page == "Incident Reporting":
-    st.header("📝 Incident Reporting")
+    st.header(" Incident Reporting")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -118,7 +118,7 @@ if page == "Incident Reporting":
 
 # Team Assignment Page
 elif page == "Team Assignment":
-    st.header("👥 Team Assignment")
+    st.header(" Team Assignment")
     
     roles = [
         "Incident Handler", 
@@ -146,11 +146,11 @@ elif page == "Team Assignment":
         st.warning("No team members assigned yet")
     else:
         for member in st.session_state.team:
-            st.write(f"🔹 **{member['role']}**: {member['name']}")
+            st.write(f" **{member['role']}**: {member['name']}")
 
 # Response Workflow Page
 elif page == "Response Workflow":
-    st.header("🔄 Response Workflow")
+    st.header(" Response Workflow")
     
     tab1, tab2 = st.tabs(["Log Actions", "Action Timeline"])
     
@@ -188,7 +188,7 @@ elif page == "Response Workflow":
 
 # Evidence Collection Page
 elif page == "Evidence Collection":
-    st.header("📁 Evidence Collection")
+    st.header(" Evidence Collection")
     
     tab1, tab2 = st.tabs(["Upload Evidence", "Evidence List"])
     
@@ -221,7 +221,7 @@ elif page == "Evidence Collection":
 
 # Checklist Page
 elif page == "Checklist":
-    st.header("✅ Response Checklist")
+    st.header(" Response Checklist")
     
     tasks = {
         "Initial Response": [
@@ -262,7 +262,7 @@ elif page == "Checklist":
 
 # Remedies Page
 elif page == "Remedies":
-    st.header("🛡️ Recommended Remedies")
+    st.header("🛡 Recommended Remedies")
     
     remedies_data = {
         "Phishing": {
@@ -294,13 +294,13 @@ elif page == "Remedies":
         
         st.subheader("Recommended Remedies")
         for remedy in remedies_data[selected]["remedies"]:
-            st.write(f"🔸 {remedy}")
+            st.write(f" {remedy}")
         
         st.session_state.remedies[selected] = remedies_data[selected]
 
 # Post-Incident Review Page
 elif page == "Post-Incident Review":
-    st.header("📊 Post-Incident Review")
+    st.header(" Post-Incident Review")
     
     with st.form("post_review_form"):
         st.subheader("What worked well?")
@@ -330,7 +330,7 @@ elif page == "Post-Incident Review":
 
 # Generate Report Page
 elif page == "Generate Report":
-    st.header("📄 Generate Final Report")
+    st.header(" Generate Final Report")
     
     if not st.session_state.incident:
         st.warning("No incident data available. Please start with Incident Reporting.")
